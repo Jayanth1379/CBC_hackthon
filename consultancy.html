@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Consultancy - Mental Health & Wellbeing</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <h1>Mental Health & Wellbeing</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html">Login/Register</a></li>
+                <li><a href="home.html">User Home</a></li>
+                <li><a href="chat.html">AI Chatbox</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" style="margin-left: 1rem; padding: 0.5rem 1rem; font-size: 1rem; border-radius: 6px; border: none; cursor: pointer;">Light Mode</button>
+    </header>
+    <main class="main-content">
+        <section class="container" style="max-width: 900px; background: var(--container-bg); border-radius: 16px; box-shadow: 0 0 40px var(--box-shadow-color); padding: 2rem; margin: 3rem auto;">
+            <h2 style="color: var(--primary-color-light); margin-bottom: 1rem;">Available Doctors for Consultancy</h2>
+            <div style="margin-bottom: 1rem;">
+                <label for="search-input" style="font-weight: 700; color: var(--primary-color-light);">Search Doctors:</label>
+                <input type="text" id="search-input" placeholder="Search by name, specialty, or location" style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--primary-color-light); font-size: 1.1rem;" />
+            </div>
+            <ul class="doctor-list" id="doctor-list" style="list-style: none; padding: 0; margin: 0;">
+                <li data-name="Dr. Alice Smith" data-specialty="Clinical Psychologist" data-location="City Hospital" style="background: #81a1c1; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 0 15px #5e81ac; color: #eceff4;">
+                    <h3 style="margin-top: 0;">Dr. Alice Smith</h3>
+                    <p><strong>Specialty:</strong> Clinical Psychologist</p>
+                    <p><strong>Location:</strong> City Hospital</p>
+                    <button class="appointment-btn" style="background: var(--button-bg); border: none; color: white; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: background 0.4s ease, box-shadow 0.3s ease; box-shadow: 0 4px 15px var(--box-shadow-color);">Set Appointment</button>
+                </li>
+                <li data-name="Dr. Bob Johnson" data-specialty="Psychiatrist" data-location="Wellness Clinic" style="background: #81a1c1; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 0 15px #5e81ac; color: #eceff4;">
+                    <h3 style="margin-top: 0;">Dr. Bob Johnson</h3>
+                    <p><strong>Specialty:</strong> Psychiatrist</p>
+                    <p><strong>Location:</strong> Wellness Clinic</p>
+                    <button class="appointment-btn" style="background: var(--button-bg); border: none; color: white; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: background 0.4s ease, box-shadow 0.3s ease; box-shadow: 0 4px 15px var(--box-shadow-color);">Set Appointment</button>
+                </li>
+                <li data-name="Dr. Carol Lee" data-specialty="Licensed Therapist" data-location="Healing Minds Center" style="background: #81a1c1; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 0 15px #5e81ac; color: #eceff4;">
+                    <h3 style="margin-top: 0;">Dr. Carol Lee</h3>
+                    <p><strong>Specialty:</strong> Licensed Therapist</p>
+                    <p><strong>Location:</strong> Healing Minds Center</p>
+                    <button class="appointment-btn" style="background: var(--button-bg); border: none; color: white; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: background 0.4s ease, box-shadow 0.3s ease; box-shadow: 0 4px 15px var(--box-shadow-color);">Set Appointment</button>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <p>&copy; 2024 Mental Health & Wellbeing</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.appointment-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Appointment request sent. A representative will contact you soon.');
+            });
+        });
+    </script>
+</body>
+</html>

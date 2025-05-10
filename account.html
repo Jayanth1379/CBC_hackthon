@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Account - Mental Health & Wellbeing</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .site-header, .site-footer {
+            flex-shrink: 0;
+        }
+        .account-container {
+            flex-grow: 1;
+            display: flex;
+            max-width: 1200px;
+            margin: 2rem auto;
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+        .sidebar {
+            flex: 0 0 250px;
+            background: var(--container-bg);
+            border-radius: 12px;
+            box-shadow: 0 0 30px var(--box-shadow-color);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .sidebar button {
+            background: var(--button-bg);
+            border: none;
+            color: white;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.4s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px var(--box-shadow-color);
+        }
+        .sidebar button:hover {
+            background: var(--button-bg-hover);
+            box-shadow: 0 6px 20px var(--box-shadow-color);
+        }
+        .content-area {
+            flex-grow: 1;
+            background: var(--container-bg);
+            border-radius: 12px;
+            box-shadow: 0 0 30px var(--box-shadow-color);
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        .content-area h2 {
+            margin-top: 0;
+            color: var(--primary-color-light);
+        }
+        .report-card, .medical-history, .personal-details, .medications, .prescriptions {
+            display: none;
+        }
+        .active-section {
+            display: block;
+        }
+        /* Improved report card styling */
+        .report-card ul {
+            list-style: disc inside;
+            padding-left: 0;
+        }
+        .report-card p, .medical-history p, .personal-details p, .medications p, .prescriptions p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>Mental Health & Wellbeing</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html">Login/Register</a></li>
+                <li><a href="chat.html">AI Chatbox</a></li>
+                <li><a href="consultancy.html">Consultancy</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" style="margin-left: 1rem; padding: 0.5rem 1rem; font-size: 1rem; border-radius: 6px; border: none; cursor: pointer;">Light Mode</button>
+    </header>
+    <main class="account-container">
+        <aside class="sidebar">
+            <button data-section="my-account">My Account</button>
+            <button data-section="scan-reports">Scan Reports</button>
+            <button data-section="prescriptions">Prescriptions</button>
+            <button data-section="medical-history">Medical History</button>
+            <button data-section="medications">Medications</button>
+            <button data-section="report-card">Reports</button>
+            <button id="logout-btn" style="margin-top: auto; background: #bf616a;">Logout</button>
+        </aside>
+        <section class="content-area">
+            <div id="report-card" class="report-card active-section">
+                <h2>Your Mental Health Report</h2>
+                <p><strong>Name:</strong> John Doe</p>
+                <p><strong>Age:</strong> 29</p>
+                <p><strong>Current Problems:</strong></p>
+                <ul>
+                    <li>Mild anxiety</li>
+                    <li>Occasional insomnia</li>
+                    <li>Stress from work</li>
+                </ul>
+            </div>
+            <div id="medical-history" class="medical-history">
+                <h2>Medical History</h2>
+                <p>No significant medical history recorded.</p>
+            </div>
+            <div id="personal-details" class="personal-details">
+                <h2>Personal Details</h2>
+                <p><strong>Email:</strong> johndoe@example.com</p>
+                <p><strong>Phone:</strong> (123) 456-7890</p>
+                <p><strong>Address:</strong> 123 Wellness St, Healthy City</p>
+            </div>
+            <div id="medications" class="medications">
+                <h2>Medications</h2>
+                <p>None currently prescribed.</p>
+            </div>
+            <div id="prescriptions" class="prescriptions">
+                <h2>Prescriptions</h2>
+                <p>No active prescriptions.</p>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <p>&copy; 2024 Mental Health & Wellbeing</p>
+    </footer>
+    <script>
+        // Sidebar button navigation
+        const buttons = document.querySelectorAll('.sidebar button[data-section]');
+        const sections = document.querySelectorAll('.content-area > div');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.getAttribute('data-section');
+                sections.forEach(section => {
+                    if (section.id === target) {
+                        section.classList.add('active-section');
+                    } else {
+                        section.classList.remove('active-section');
+                    }
+                });
+            });
+        });
+
+        // Logout button
+        const logoutBtn = document.getElementById('logout-btn');
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
